@@ -1,0 +1,66 @@
+@import "./scss/bootstrap.scss";
+
+$brand-height:60px;
+$sidebar-width:180px;
+$navbar-height:50px;
+
+body{
+  // overflow: hidden;
+}
+
+@include media-breakpoint-down(sm) {
+  .left-layout{
+    margin-left: -$sidebar-width;
+  }
+  .right-layout{
+    margin-left:0 !important;
+    .main-container{
+      width: 100%;
+      padding:10px 15px  !important;
+    }
+  }
+}
+// 左边栏
+.left-layout{
+  top:0;
+  height: 100vh;
+  position: fixed;
+  background-color: #001a2a;
+  transition: margin-left 0.5s ease;
+  width: $sidebar-width;
+  .brand{
+    position: relative;
+    height: $brand-height;
+    padding: 10px;
+    text-align: center;
+    img{
+      height: 100%;
+    }
+  }
+  .sidebar{
+    margin-top: 20px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+// 右边栏
+.right-layout{
+  transition: margin-left 0.5s ease;
+  margin-left:$sidebar-width;
+  // 上边栏
+  .navbar{
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: $navbar-height;
+  }
+  .main-container{
+    height:calc(100vh - #{$navbar-height});
+    background-color: #e3e6ec;
+    padding:20px 50px;
+    overflow: auto;
+  }
+}
